@@ -1,0 +1,991 @@
+/* ========================================
+   Enhanced Global Styles & Variables
+   ======================================== */
+:root {
+  --primary-color: #6366f1;
+  --primary-dark: #4f46e5;
+  --secondary-color: #8b5cf6;
+  --success-color: #10b981;
+  --danger-color: #ef4444;
+  --warning-color: #f59e0b;
+  --info-color: #06b6d4;
+  --dark-color: #1f2937;
+  --light-color: #f9fafb;
+  --text-muted: #6b7280;
+  --border-color: #e5e7eb;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #e2e8f0;
+  color: var(--dark-color);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================
+   Auth Pages - Premium Design
+   ======================================== */
+.auth-page {
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+    linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+  background-position: 0% 0%, 100% 100%, 50% 50%, 0% 0%;
+  animation: backgroundShift 20s ease infinite;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes backgroundShift {
+  0%, 100% {
+    background-position: 0% 0%, 100% 100%, 50% 50%, 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%, 0% 0%, 50% 50%, 0% 0%;
+  }
+}
+
+/* Animated background shapes */
+.auth-page::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: float 25s infinite linear;
+  z-index: 0;
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(-50px, -50px) rotate(360deg); }
+}
+
+/* Animated blob shapes */
+.auth-page::after {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15), transparent 70%);
+  border-radius: 50%;
+  top: -250px;
+  right: -250px;
+  animation: blobPulse 8s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes blobPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.3;
+  }
+}
+
+/* Floating geometric shapes */
+.auth-page .floating-shape {
+  position: absolute;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.auth-page .shape-1 {
+  width: 200px;
+  height: 200px;
+  background: white;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  top: 10%;
+  left: 10%;
+  animation: morph 15s ease-in-out infinite;
+}
+
+.auth-page .shape-2 {
+  width: 300px;
+  height: 300px;
+  background: white;
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  bottom: 10%;
+  right: 10%;
+  animation: morph 20s ease-in-out infinite reverse;
+}
+
+@keyframes morph {
+  0%, 100% {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    transform: rotate(0deg);
+  }
+  25% {
+    border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
+    transform: rotate(90deg);
+  }
+  50% {
+    border-radius: 30% 70% 70% 30% / 70% 30% 30% 70%;
+    transform: rotate(180deg);
+  }
+  75% {
+    border-radius: 70% 30% 70% 30% / 30% 70% 30% 70%;
+    transform: rotate(270deg);
+  }
+}
+
+.auth-card {
+  border: none;
+  border-radius: 24px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 10;
+  animation: slideUp 0.6s ease-out;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.auth-card .card-body {
+  padding: 3rem;
+}
+
+.auth-page .container {
+  position: relative;
+  z-index: 10;
+}
+
+.auth-card .text-center i {
+  display: inline-block;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.auth-card h2 {
+  color: var(--dark-color);
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.auth-card .input-group-text {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-right: none;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  padding: 0.875rem 1rem;
+}
+
+.auth-card .form-control {
+  border-left: none;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.auth-card .form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+  transform: translateY(-1px);
+}
+
+.auth-card .btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  padding: 0.875rem 2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-card .btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+}
+
+.auth-card .btn-primary:hover::before {
+  left: 100%;
+}
+
+.auth-card .btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+
+.auth-card .btn-primary:active {
+  transform: translateY(-1px);
+}
+
+.auth-card a {
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  color: var(--primary-color);
+}
+
+.auth-card a:hover {
+  color: var(--secondary-color) !important;
+  text-shadow: 0 0 8px rgba(102, 126, 234, 0.3);
+}
+
+/* ========================================
+   Statistics Cards - Enhanced
+   ======================================== */
+.stat-card {
+  border: none !important;
+  border-radius: 20px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  background: transparent !important;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.5);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.stat-card:hover::before {
+  transform: scaleX(1);
+}
+
+.stat-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--shadow-xl) !important;
+}
+
+.stat-card:active {
+  transform: translateY(-6px) scale(0.99);
+}
+
+.stat-card-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: white !important;
+  border: none !important;
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4) !important;
+}
+
+.stat-card-primary .card-body {
+  background: transparent !important;
+}
+
+.stat-card-primary .text-muted {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.stat-card-warning {
+  background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%) !important;
+  color: white !important;
+  border: none !important;
+  box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4) !important;
+}
+
+.stat-card-warning .card-body {
+  background: transparent !important;
+}
+
+.stat-card-warning .text-muted {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.stat-card-info {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%) !important;
+  color: white !important;
+  border: none !important;
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4) !important;
+}
+
+.stat-card-info .card-body {
+  background: transparent !important;
+}
+
+.stat-card-info .text-muted {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.stat-card-success {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+  color: white !important;
+  border: none !important;
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4) !important;
+}
+
+.stat-card-success .card-body {
+  background: transparent !important;
+}
+
+.stat-card-success .text-muted {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.stat-icon {
+  font-size: 3rem;
+  opacity: 1;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  color: white;
+}
+
+.stat-card:hover .stat-icon {
+  transform: scale(1.1) rotate(5deg);
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4));
+}
+
+.stat-card h3 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0;
+  color: white !important;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.stat-card h3.mb-0 {
+  color: white !important;
+}
+
+.stat-card:hover h3 {
+  transform: scale(1.05);
+}
+
+.stat-card h6 {
+  opacity: 1;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: white !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ========================================
+   Task Cards - Premium Design
+   ======================================== */
+.task-card {
+  border: none;
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-left: 5px solid var(--primary-color);
+  background: white;
+  box-shadow: var(--shadow);
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.task-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
+  transition: width 0.3s ease;
+}
+
+.task-card:hover {
+  transform: translateX(8px) translateY(-2px);
+  box-shadow: var(--shadow-xl) !important;
+}
+
+.task-card:hover::after {
+  width: 6px;
+}
+
+/* Completed Tasks - Green Border */
+.task-completed {
+  opacity: 0.9;
+  border-left-color: #10b981;
+}
+
+.task-completed::after {
+  background: linear-gradient(180deg, #10b981, #34d399);
+}
+
+.task-completed .card-title {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+/* Pending Tasks - Orange/Yellow Border */
+.task-pending {
+  border-left-color: #f59e0b;
+}
+
+.task-pending::after {
+  background: linear-gradient(180deg, #f59e0b, #fbbf24);
+}
+
+/* In Progress Tasks - Purple Border */
+.task-in-progress {
+  border-left-color: #6366f1;
+}
+
+.task-in-progress::after {
+  background: linear-gradient(180deg, #6366f1, #8b5cf6);
+}
+
+.task-card .card-body {
+  padding: 1.5rem;
+}
+
+.task-card .card-title {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--dark-color);
+  margin-bottom: 0.75rem;
+  transition: color 0.3s ease;
+}
+
+.task-card:hover .card-title {
+  color: var(--primary-color);
+}
+
+.task-card .card-text {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.task-card .badge {
+  font-size: 0.75rem;
+  padding: 0.5rem 0.875rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: var(--shadow-sm);
+}
+
+.task-card .btn {
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.task-card .btn-success {
+  background: linear-gradient(135deg, #10b981, #059669);
+  box-shadow: 0 4px 6px rgba(16, 185, 129, 0.3);
+}
+
+.task-card .btn-success:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(16, 185, 129, 0.4);
+}
+
+.task-card .btn-outline-primary {
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  background: white;
+}
+
+.task-card .btn-outline-primary:hover {
+  background: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(99, 102, 241, 0.3);
+}
+
+.task-card .btn-outline-danger {
+  border: 2px solid var(--danger-color);
+  color: var(--danger-color);
+  background: white;
+}
+
+.task-card .btn-outline-danger:hover {
+  background: var(--danger-color);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(239, 68, 68, 0.3);
+}
+
+/* ========================================
+   Forms - Enhanced
+   ======================================== */
+.form-control, .form-select {
+  border-radius: 12px;
+  border: 2px solid var(--border-color);
+  padding: 0.875rem 1.25rem;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  background: white;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.input-group-text {
+  border-radius: 12px 0 0 12px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-right: none;
+  color: var(--primary-color);
+  font-weight: 600;
+  padding: 0.875rem 1.25rem;
+  border: 2px solid var(--border-color);
+  border-right: none;
+}
+
+.input-group .form-control {
+  border-left: none;
+  border-radius: 0 12px 12px 0;
+}
+
+.input-group .form-control:focus {
+  border-left: 2px solid var(--primary-color);
+}
+
+/* ========================================
+   Buttons - Premium Style
+   ======================================== */
+.btn {
+  border-radius: 12px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  box-shadow: var(--shadow-lg);
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(102, 126, 234, 0.4);
+}
+
+.btn-primary:active {
+  transform: translateY(-1px);
+}
+
+.btn-outline-secondary {
+  border: 2px solid var(--text-muted);
+  color: var(--text-muted);
+  background: white;
+}
+
+.btn-outline-secondary:hover {
+  background: var(--text-muted);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+/* ========================================
+   Navbar - Enhanced
+   ======================================== */
+.navbar {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  padding: 1.25rem 0;
+  box-shadow: var(--shadow-lg);
+  backdrop-filter: blur(10px);
+}
+
+.navbar-brand {
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .btn-outline-light {
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.navbar .btn-outline-light:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: white;
+  transform: translateY(-2px);
+}
+
+/* ========================================
+   Cards - Enhanced
+   ======================================== */
+.card {
+  border: none;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.card-header {
+  border-bottom: 2px solid var(--border-color);
+  border-radius: 20px 20px 0 0 !important;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 1.25rem 1.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.card-header.bg-light {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+  color: var(--dark-color);
+}
+
+/* ========================================
+   Modal - Enhanced
+   ======================================== */
+.modal-content {
+  border-radius: 24px;
+  border: none;
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+}
+
+.modal-header {
+  border-bottom: 2px solid var(--border-color);
+  border-radius: 24px 24px 0 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 1.5rem;
+}
+
+.modal-footer {
+  border-top: 2px solid var(--border-color);
+  padding: 1.5rem;
+}
+
+/* ========================================
+   Alerts - Enhanced
+   ======================================== */
+.alert {
+  border-radius: 12px;
+  border: none;
+  padding: 1rem 1.5rem;
+  font-weight: 500;
+  box-shadow: var(--shadow);
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.alert-danger {
+  background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+  color: #991b1b;
+  border-left: 4px solid var(--danger-color);
+}
+
+.alert-success {
+  background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+  color: #065f46;
+  border-left: 4px solid var(--success-color);
+}
+
+/* ========================================
+   Badges - Enhanced
+   ======================================== */
+.badge {
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: var(--shadow-sm);
+}
+
+.bg-danger {
+  background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+}
+
+.bg-warning {
+  background: linear-gradient(135deg, #f59e0b, #d97706) !important;
+}
+
+.bg-info {
+  background: linear-gradient(135deg, #06b6d4, #0891b2) !important;
+}
+
+.bg-success {
+  background: linear-gradient(135deg, #10b981, #059669) !important;
+}
+
+.bg-primary {
+  background: linear-gradient(135deg, #6366f1, #4f46e5) !important;
+}
+
+/* ========================================
+   Animations
+   ======================================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.task-card {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.task-card:nth-child(1) { animation-delay: 0.1s; }
+.task-card:nth-child(2) { animation-delay: 0.2s; }
+.task-card:nth-child(3) { animation-delay: 0.3s; }
+.task-card:nth-child(4) { animation-delay: 0.4s; }
+.task-card:nth-child(n+5) { animation-delay: 0.5s; }
+
+/* ========================================
+   Custom Scrollbar
+   ======================================== */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 10px;
+  border: 2px solid #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+/* ========================================
+   Loading Spinner
+   ======================================== */
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+  border-width: 0.3em;
+}
+
+/* ========================================
+   Utility Classes
+   ======================================== */
+.text-primary {
+  color: #667eea !important;
+}
+
+.shadow-sm {
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.shadow {
+  box-shadow: var(--shadow) !important;
+}
+
+.shadow-lg {
+  box-shadow: var(--shadow-lg) !important;
+}
+
+.shadow-xl {
+  box-shadow: var(--shadow-xl) !important;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+/* ========================================
+   Responsive Design
+   ======================================== */
+@media (max-width: 768px) {
+  .auth-card .card-body {
+    padding: 2rem;
+  }
+
+  .stat-card h3 {
+    font-size: 2rem;
+  }
+
+  .stat-icon {
+    font-size: 2.5rem;
+  }
+
+  .task-card .d-flex {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .task-card .btn {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* ========================================
+   Additional Polish
+   ======================================== */
+.container-fluid {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media (max-width: 768px) {
+  .container-fluid {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Override Bootstrap card styles for stat cards */
+.card.stat-card {
+  background-color: transparent !important;
+}
+
+.card.stat-card .card-body {
+  background-color: transparent !important;
+  color: white !important;
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* =========================================================
+   AUTH PAGES PERFORMANCE OVERRIDES (LOGIN & REGISTER ONLY)
+   ========================================================= */
+
+/* Stop expensive full-screen background animation */
+.auth-page {
+  animation: none !important;
+  background:
+    linear-gradient(135deg, #667eea, #764ba2) !important;
+}
+
+/* Disable heavy pseudo-element animations */
+.auth-page::before,
+.auth-page::after {
+  animation: none !important;
+}
+
+/* Disable floating shape animations */
+.auth-page .floating-shape {
+  animation: none !important;
+}
+
+/* Remove expensive backdrop blur */
+.auth-page .auth-card {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: rgba(255, 255, 255, 0.96) !important;
+}
+
+/* Remove morphing / pulsing animations inside auth pages */
+.auth-page * {
+  animation: none !important;
+}
+
+/* Restore smooth but lightweight interactions */
+.auth-page .btn,
+.auth-page .form-control,
+.auth-page a {
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+/* Prevent global transition lag on auth pages */
+.auth-page * {
+  transition: none !important;
+}
+
+/* Re-enable transitions only where needed */
+.auth-page .btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Improve typing & cursor performance */
+.auth-page input,
+.auth-page button {
+  will-change: auto;
+}
+
