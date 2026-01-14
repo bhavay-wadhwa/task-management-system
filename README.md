@@ -21,6 +21,6 @@ The Task Management System is a full-stack web application that allows users to 
 5. Start server
 
 ```bash
-git clone <repository-url>
-cd TASK-MANAGER-PRO
+git clone https://github.com/bhavay-wadhwa/task-management-system.git
+cd task-management-system
 npm install
